@@ -1,3 +1,30 @@
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+    margin: 5%;
+`;
+
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh;
+
+    button{
+        align-self: center;
+        padding: 2%;
+        cursor: pointer;
+        border: none;
+        background-color: #fcea78b8;
+        letter-spacing: 0.1rem;
+    }
+`;
+
+const StyledLabel = styled.label`
+    
+`;
+
+
 export default function Form({ values, submit, change, disabled, errors }) {  
     const onSubmit = event => {
         event.preventDefault()
@@ -10,41 +37,41 @@ export default function Form({ values, submit, change, disabled, errors }) {
         change(name, valueToUse)
     }
     return(
-        <form onSubmit={onSubmit}>
+        <StyledForm onSubmit={onSubmit}>
             <h2>Add a User</h2>
-            <div>
-                <label>Username
+            <StyledDiv>
+                <StyledLabel>Username&nbsp;
                     <input
                         value={values.username}
                         onChange={onChange}
                         name='username'
                         type='text'
                     />
-                </label>
-                <label>Email
+                </StyledLabel>
+                <StyledLabel>Email&nbsp;
                     <input 
                         value={values.email}
                         onChange={onChange}
                         name='email'
                         type='email'
                     />
-                </label>
-                <label>password
+                </StyledLabel>
+                <StyledLabel>Password&nbsp;
                     <input 
                         value={values.password}
                         onChange={onChange}
                         name='password'
                         type='text'
                     />
-                </label>
-                <label>Do you agree to the terms and conditions?
+                </StyledLabel>
+                <StyledLabel>Do you agree to the terms and conditions?&nbsp;
                     <input 
                         type='checkbox'
                         name='terms'
                         onChange={onChange}
                         checked={values.true}
                     />
-                </label>
+                </StyledLabel>
                 <button disabled={disabled}>Submit</button>
                 <div>
                     <div>{errors.username}</div>
@@ -52,7 +79,7 @@ export default function Form({ values, submit, change, disabled, errors }) {
                     <div>{errors.password}</div>
                     <div>{errors.terms}</div>
                 </div>
-            </div>
-        </form>
+            </StyledDiv>
+        </StyledForm>
     )
 }

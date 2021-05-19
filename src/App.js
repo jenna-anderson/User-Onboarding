@@ -82,8 +82,8 @@ function App() {
 
       {users.map(user => {
         return(
-          // <User details={user} />
-          <pre key={user.id}>{JSON.stringify(user, null, 2)}</pre>
+          <User details={user} />
+          // <pre key={user.id}>{JSON.stringify(user, null, 2)}</pre>
         )
       })}
     </div>
