@@ -33,6 +33,7 @@ function App() {
   const postNewUser = newUser => {
     axios.post('https://reqres.in/api/users', newUser)
     .then(res => {
+      console.log(res.data)
       setUsers([res.data, ...users])
     })
     .catch(err => {
@@ -81,7 +82,8 @@ function App() {
 
       {users.map(user => {
         return(
-          <User details={user} />
+          // <User details={user} />
+          <pre key={user.id}>{JSON.stringify(user, null, 2)}</pre>
         )
       })}
     </div>
