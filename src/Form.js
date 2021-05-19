@@ -42,10 +42,16 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         type='checkbox'
                         name='terms'
                         onChange={onChange}
-                        checked={values.terms}
+                        checked={values.true}
                     />
                 </label>
-                <button disabled={false}>Submit</button>
+                <button disabled={disabled}>Submit</button>
+                <div>
+                    <div>{errors.username}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.terms}</div>
+                </div>
             </div>
         </form>
     )
