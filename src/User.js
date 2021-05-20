@@ -10,6 +10,7 @@ const StyledContainer = styled.section`
     margin: 2%;
     background-color: #c2cad3a6;
     padding: 2%2%;
+    box-shadow: 0 0 10px grey;
 `;
 
 const StyledUser = styled.div`
@@ -21,7 +22,7 @@ const StyledUser = styled.div`
 export default function User({ details }) {
     return(
         <StyledContainer>
-            <h2>Welcome</h2>
+            <h2>Welcome to the team {details.role}!</h2>
             <StyledUser>
                 <div>Username: {details.username}</div>
                 <div>Email: {details.email}</div>

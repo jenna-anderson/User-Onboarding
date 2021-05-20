@@ -15,8 +15,18 @@ const StyledDiv = styled.div`
         padding: 2%;
         cursor: pointer;
         border: none;
-        background-color: #fcea78b8;
+        background-color: #b69495c4;
         letter-spacing: 0.1rem;
+        background-color: #50f150;
+    }
+    button:hover{
+        transform: scale(1.1);
+    }
+    button:disabled{
+        color: black;
+        background-color: #c3a0a394;
+        color: #524546;
+        transform: scale(1);
     }
 `;
 
@@ -38,7 +48,7 @@ export default function Form({ values, submit, change, disabled, errors }) {
     }
     return(
         <StyledForm onSubmit={onSubmit}>
-            <h2>Add a User</h2>
+            <h2>Join the team</h2>
             <StyledDiv>
                 <StyledLabel>Username&nbsp;
                     <input
@@ -67,20 +77,28 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         data-test='password-test-input'
                     />
                 </StyledLabel>
-                {/* <StyledLabel>Membership&nbsp;
-                    <select> 
+                <StyledLabel>Role&nbsp;
+                    <select
+                        onChange={onChange}
+                        value={values.role}
+                        name='role'
+                        data-test='role-test-input'> 
                         <option value=''>-- Select Type --</option>
-                        <option value='trial'>trial</option>
-                        <option value='basic'>Basic</option>
-                        <option value='premium'>Premium</option>
+                        <option value='distance'>Distance</option>
+                        <option value='sprinter'>Sprinter</option>
+                        <option value='thrower'>Thrower</option>
+                        <option value='jumper'>Jumper</option>
+                        <option value='multi'>Multi</option>
+                        <option value='coach'>Coach</option>
+                        <option value='trainer'>Trainer</option>
                     </select>
-                </StyledLabel> */}
+                </StyledLabel>
                 <StyledLabel>Do you agree to the terms and conditions?&nbsp;
                     <input 
                         type='checkbox'
                         name='terms'
                         onChange={onChange}
-                        checked={values.true}
+                        checked={values.terms}
                         data-test='terms-test-check'
                     />
                 </StyledLabel>

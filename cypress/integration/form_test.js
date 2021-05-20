@@ -10,6 +10,7 @@ describe('User App', () => {
     const passwordInput = () => cy.get('input[data-test=password-test-input]')
     const termsCheck = () => cy.get('input[data-test=terms-test-check]')
     const submitBtn = () => cy.get('button[id=submitBtn]')
+    const roleInput = () => cy.get('select[data-test=role-test-input]')
 
     const setInputs = () => {
         nameInput()
@@ -24,6 +25,10 @@ describe('User App', () => {
             .should('have.value', '')
             .type('peanutButter')
             .should('have.value', 'peanutButter')
+        roleInput()
+            .should('have.value', '')
+            .select('distance')
+            .should('have.value', 'distance')
         termsCheck()
             .check()
     }
@@ -42,6 +47,15 @@ describe('User App', () => {
 
     describe('can submit form data', () => {
         it('can type in the inputs', submitForm)
+
+        it('clears inputs after submit', () => {
+            submitForm()
+            nameInput('have.value', '')
+            emailInput('have.value', '')
+            passwordInput('have.value', '')
+            roleInput('have.value', '')
+            termsCheck('have.value', false)
+        })
     })
 
     it('form validation if empty input field', () => {

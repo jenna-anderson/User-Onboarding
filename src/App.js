@@ -11,6 +11,7 @@ const initialFormValues = {
   username: '',
   email: '',
   password: '',
+  role: '',
   terms: false,
 }
 
@@ -18,6 +19,7 @@ const initialFormErrors = {
   username: '',
   email: '',
   password: '',
+  role: '',
   terms: '',
 }
 
@@ -61,6 +63,7 @@ function App() {
       username: formValues.username.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
+      role: formValues.role,
       terms: formValues.terms
     }
     postNewUser(newUser)
