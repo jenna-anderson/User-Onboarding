@@ -46,6 +46,7 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         onChange={onChange}
                         name='username'
                         type='text'
+                        data-test='name-test-input'
                     />
                 </StyledLabel>
                 <StyledLabel>Email&nbsp;
@@ -54,6 +55,7 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         onChange={onChange}
                         name='email'
                         type='email'
+                        data-test='email-test-input'
                     />
                 </StyledLabel>
                 <StyledLabel>Password&nbsp;
@@ -62,17 +64,27 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         onChange={onChange}
                         name='password'
                         type='text'
+                        data-test='password-test-input'
                     />
                 </StyledLabel>
+                {/* <StyledLabel>Membership&nbsp;
+                    <select> 
+                        <option value=''>-- Select Type --</option>
+                        <option value='trial'>trial</option>
+                        <option value='basic'>Basic</option>
+                        <option value='premium'>Premium</option>
+                    </select>
+                </StyledLabel> */}
                 <StyledLabel>Do you agree to the terms and conditions?&nbsp;
                     <input 
                         type='checkbox'
                         name='terms'
                         onChange={onChange}
                         checked={values.true}
+                        data-test='terms-test-check'
                     />
                 </StyledLabel>
-                <button disabled={disabled}>Submit</button>
+                <button id='submitBtn' disabled={disabled}>Submit</button>
                 <div>
                     <div>{errors.username}</div>
                     <div>{errors.email}</div>
