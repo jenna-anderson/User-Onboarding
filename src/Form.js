@@ -84,7 +84,7 @@ export default function Form({ values, submit, change, disabled, errors }) {
                         name='role'
                         data-test='role-test-input'> 
                         <option value=''>-- Select Type --</option>
-                        <option value='distance'>Distance</option>
+                        <option value='distance runner'>Distance Runner</option>
                         <option value='sprinter'>Sprinter</option>
                         <option value='thrower'>Thrower</option>
                         <option value='jumper'>Jumper</option>
